@@ -1,0 +1,74 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "0g/glm-5.3-flash",
+  "default_agent": "build",
+  "share": "disabled",
+  "autoupdate": false,
+  "snapshots": true,
+  "compaction": { "auto": true, "keep": { "tokens": 20000 }, "buffer": 20000 },
+  "experimental": {
+    "policies": [
+      { "action": "permission", "resource": "shell:sudo *", "effect": "deny" },
+      { "action": "permission", "resource": "shell:sudo", "effect": "deny" },
+      { "action": "permission", "resource": "shell:git push *", "effect": "deny" },
+      { "action": "permission", "resource": "shell:git push", "effect": "deny" },
+      { "action": "permission", "resource": "shell:ssh *", "effect": "deny" },
+      { "action": "permission", "resource": "shell:ssh", "effect": "deny" },
+      { "action": "permission", "resource": "shell:scp *", "effect": "deny" },
+      { "action": "permission", "resource": "shell:scp", "effect": "deny" },
+      { "action": "permission", "resource": "shell:rm -rf *", "effect": "deny" },
+      { "action": "permission", "resource": "shell:git reset --hard *", "effect": "deny" },
+      { "action": "permission", "resource": "shell:git reset --hard", "effect": "deny" }
+    ]
+  },
+  "providers": {
+    "0g": {
+      "name": "0G Private Computer (Unified Decentralized AI)",
+      "package": "aisdk:@ai-sdk/openai-compatible",
+      "settings": { "baseURL": "http://llmproxy:8080/0g/v1", "apiKey": "proxy-managed" },
+      "models": {
+        "glm-5.3-flash": {
+          "modelID": "glm-5.3-flash",
+          "name": "GLM 5.3 Flash — Lead Architect & Planning (1.18M context)",
+          "capabilities": { "tools": true },
+          "limit": { "context": 1179648, "output": 8192 }
+        },
+        "qwen3-coder-flash": {
+          "modelID": "qwen3-coder-flash",
+          "name": "Qwen 3 Coder Flash — Senior Engineering & Code Synthesis (1M context)",
+          "capabilities": { "tools": true },
+          "limit": { "context": 1000000, "output": 8192 }
+        },
+        "kimi-k2.7-code": {
+          "modelID": "kimi-k2.7-code",
+          "name": "Kimi K2.7 Code — Verification & QA Assertions (262k context)",
+          "capabilities": { "tools": true },
+          "limit": { "context": 262144, "output": 8192 }
+        },
+        "deepseek-v4.1-flash": {
+          "modelID": "deepseek-v4.1-flash",
+          "name": "DeepSeek V4.1 Flash — Frontier Reasoning (1.44M context)",
+          "capabilities": { "tools": true },
+          "limit": { "context": 1441792, "output": 8192 }
+        },
+        "qwen3.7-flash": {
+          "modelID": "qwen3.7-flash",
+          "name": "Qwen 3.7 Flash — Fast swarm reasoning (1M context)",
+          "capabilities": { "tools": true },
+          "limit": { "context": 1000000, "output": 8192 }
+        },
+        "qwen-flash": {
+          "modelID": "qwen-flash",
+          "name": "Qwen Flash — Fast triage and voting (1M context)",
+          "capabilities": { "tools": true },
+          "limit": { "context": 1000000, "output": 8192 }
+        }
+      }
+    }
+  },
+  "agents": {
+    "build":   { "model": "0g/qwen3-coder-flash" },
+    "plan":    { "model": "0g/glm-5.3-flash" },
+    "explore": { "model": "0g/glm-5.3-flash" }
+  }
+}

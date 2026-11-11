@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  bridge:
+    build:
+      context: .
+      dockerfile: Dockerfile.bridge
+    container_name: autonex-bridge
+    restart: always
+    environment:
+      - PORT=8000
+      - ZG_API_KEY=${ZG_API_KEY:-}
+      - ZG_BASE_URL=${ZG_BASE_URL:-https://router-api.0g.ai/v1}
+      - ZG_TRUST_MODE=${ZG_TRUST_MODE:-standard}
+      - ZG_TIMEOUT_MS=${ZG_TIMEOUT_MS:-65000}
+      - VITE_SWARM_GATEWAY_URL=${VITE_SWARM_GATEWAY_URL:-https://api.gateway.ethswarm.org}
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./output:/app/output
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+      args:
+        VITE_API_URL: ${VITE_API_URL:-}
+        VITE_USE_MOCK: "false"
+        VITE_ARKIV_ACCESS_KEY: ${VITE_ARKIV_ACCESS_KEY:-}
+        VITE_SWARM_GATEWAY_URL: ${VITE_SWARM_GATEWAY_URL:-https://api.gateway.ethswarm.org}
+    container_name: autonex-frontend
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - bridge
+

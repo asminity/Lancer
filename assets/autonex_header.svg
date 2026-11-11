@@ -1,0 +1,194 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 240" width="1200" height="240">
+  <defs>
+    <!-- Deep Cyber Space Background Gradient -->
+    <linearGradient id="cyberBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#050210;stop-opacity:1" />
+      <stop offset="35%" style="stop-color:#0d0526;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#15093c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#050210;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Radiant Cyberpunk Title Gradient -->
+    <linearGradient id="neonTitleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00f2fe" />
+      <stop offset="25%" style="stop-color:#4facfe" />
+      <stop offset="50%" style="stop-color:#9d4edd" />
+      <stop offset="75%" style="stop-color:#f72585" />
+      <stop offset="100%" style="stop-color:#00f2fe" />
+      <animate attributeName="x1" values="0%;100%;0%" dur="7s" repeatCount="indefinite" />
+      <animate attributeName="x2" values="100%;200%;100%" dur="7s" repeatCount="indefinite" />
+    </linearGradient>
+
+    <!-- Core Pill Badge Gradient -->
+    <linearGradient id="pillGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00f2fe;stop-opacity:0.25" />
+      <stop offset="50%" style="stop-color:#7928ca;stop-opacity:0.35" />
+      <stop offset="100%" style="stop-color:#ff0080;stop-opacity:0.25" />
+    </linearGradient>
+
+    <!-- Glassmorphic Border Gradient -->
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00f2fe;stop-opacity:0.7" />
+      <stop offset="40%" style="stop-color:#9d4edd;stop-opacity:0.5" />
+      <stop offset="80%" style="stop-color:#f72585;stop-opacity:0.7" />
+      <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:0.7" />
+    </linearGradient>
+
+    <!-- Beam Glow Filter -->
+    <filter id="neonGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Subtle Particle Glow -->
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Cyber Isometric Grid Pattern -->
+    <pattern id="isoGrid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#2a1464" stroke-width="0.6" opacity="0.35"/>
+      <circle cx="0" cy="0" r="1" fill="#00f2fe" opacity="0.3" />
+    </pattern>
+
+    <!-- Radial Core Spotlight -->
+    <radialGradient id="centerLight" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#7928ca;stop-opacity:0.22" />
+      <stop offset="50%" style="stop-color:#00f2fe;stop-opacity:0.08" />
+      <stop offset="100%" style="stop-color:#050210;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+
+  <!-- 1. Background Container -->
+  <rect width="1200" height="240" rx="16" fill="url(#cyberBg)" stroke="url(#borderGrad)" stroke-width="1.5"/>
+
+  <!-- 2. Cyber Isometric Grid Overlay -->
+  <rect width="1200" height="240" rx="16" fill="url(#isoGrid)"/>
+
+  <!-- 3. Ambient Center Holographic Glow -->
+  <ellipse cx="600" cy="120" rx="520" ry="105" fill="url(#centerLight)"/>
+
+  <!-- 4. Top & Bottom Circuit Accent Lines -->
+  <line x1="80" y1="12" x2="1120" y2="12" stroke="#00f2fe" stroke-width="1" opacity="0.3" stroke-dasharray="8 6"/>
+  <line x1="140" y1="228" x2="1060" y2="228" stroke="#f72585" stroke-width="1" opacity="0.35" stroke-dasharray="10 8"/>
+
+  <!-- 5. Dynamic Horizontal Laser Scan -->
+  <line x1="0" y1="0" x2="1200" y2="0" stroke="#00f2fe" stroke-width="1.5" opacity="0.4">
+    <animate attributeName="y1" values="20;220;20" dur="5s" repeatCount="indefinite" />
+    <animate attributeName="y2" values="20;220;20" dur="5s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.1;0.4;0.1" dur="5s" repeatCount="indefinite" />
+  </line>
+
+  <!-- 6. Left & Right Constellation Circuit Vectors (Representing Swarm Nodes) -->
+  <g opacity="0.8" filter="url(#softGlow)">
+    <!-- Left Swarm Cluster -->
+    <circle cx="110" cy="80" r="3" fill="#00f2fe"/>
+    <circle cx="170" cy="55" r="2.5" fill="#9d4edd"/>
+    <circle cx="140" cy="120" r="3.5" fill="#f72585"/>
+    <circle cx="85" cy="150" r="2" fill="#00f2fe"/>
+    <circle cx="190" cy="160" r="2.5" fill="#38bdf8"/>
+    <line x1="110" y1="80" x2="170" y2="55" stroke="#00f2fe" stroke-width="0.75" opacity="0.4"/>
+    <line x1="110" y1="80" x2="140" y2="120" stroke="#f72585" stroke-width="0.75" opacity="0.4"/>
+    <line x1="140" y1="120" x2="85" y2="150" stroke="#9d4edd" stroke-width="0.75" opacity="0.4"/>
+    <line x1="140" y1="120" x2="190" y2="160" stroke="#38bdf8" stroke-width="0.75" opacity="0.4"/>
+
+    <!-- Right Swarm Cluster -->
+    <circle cx="1090" cy="80" r="3" fill="#f72585"/>
+    <circle cx="1030" cy="55" r="2.5" fill="#00f2fe"/>
+    <circle cx="1060" cy="120" r="3.5" fill="#9d4edd"/>
+    <circle cx="1115" cy="150" r="2" fill="#38bdf8"/>
+    <circle cx="1010" cy="160" r="2.5" fill="#f72585"/>
+    <line x1="1090" y1="80" x2="1030" y2="55" stroke="#f72585" stroke-width="0.75" opacity="0.4"/>
+    <line x1="1090" y1="80" x2="1060" y2="120" stroke="#00f2fe" stroke-width="0.75" opacity="0.4"/>
+    <line x1="1060" y1="120" x2="1115" y2="150" stroke="#9d4edd" stroke-width="0.75" opacity="0.4"/>
+    <line x1="1060" y1="120" x2="1010" y2="160" stroke="#38bdf8" stroke-width="0.75" opacity="0.4"/>
+  </g>
+
+  <!-- 7. Centerpiece: Top Holographic Intelligence Badge -->
+  <g transform="translate(600, 36)">
+    <!-- Glass Badge Base -->
+    <rect x="-240" y="-14" width="480" height="28" rx="14" fill="url(#pillGrad)" stroke="#00f2fe" stroke-width="1" opacity="0.85"/>
+    <!-- Animated Pill Glow Dots -->
+    <circle cx="-222" cy="0" r="3.5" fill="#00f2fe" filter="url(#softGlow)">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="222" cy="0" r="3.5" fill="#f72585" filter="url(#softGlow)">
+      <animate attributeName="opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <!-- Badge Message -->
+    <text x="0" y="4.5" font-family="'Space Grotesk', 'Inter', 'Segoe UI', sans-serif" font-size="10.5" font-weight="700" letter-spacing="3" text-anchor="middle" fill="#e0e7ff">
+      ✦ SPATIAL AGENTIC INTELLIGENCE · 0G COMPUTE ✦
+    </text>
+  </g>
+
+  <!-- 8. Main Logo Icon & AUTONEX Title -->
+  <g transform="translate(600, 102)">
+    <!-- Central Geometric Nexus Emblem (3D Isometric Cube / Core Nexus) -->
+    <g transform="translate(-195, -16) scale(0.65)" filter="url(#neonGlow)">
+      <!-- Isometric Cube Polygons -->
+      <polygon points="0,-24 21,-12 0,0 -21,-12" fill="#00f2fe" opacity="0.85"/>
+      <polygon points="0,0 21,-12 21,12 0,24" fill="#7928ca" opacity="0.85"/>
+      <polygon points="-21,-12 0,0 0,24 -21,12" fill="#f72585" opacity="0.85"/>
+      <!-- Inner Glowing Core -->
+      <circle cx="0" cy="0" r="5" fill="#ffffff" filter="url(#softGlow)"/>
+    </g>
+
+    <!-- AUTONEX Main Brand Title -->
+    <text x="18" y="8" font-family="'Space Grotesk', 'Inter', 'Segoe UI', Arial, sans-serif" font-size="46" font-weight="900" letter-spacing="9" text-anchor="middle" fill="url(#neonTitleGrad)" filter="url(#neonGlow)">
+      AUTONEX
+    </text>
+  </g>
+
+  <!-- 9. Elevated Futuristic Subtitle (New Message Angle) -->
+  <!-- "WHERE CODE IS NOT JUST WRITTEN — IT IS DELIBERATED, ENGINEERED & OBSERVED" -->
+  <text x="600" y="146" font-family="'Space Grotesk', 'Inter', 'Segoe UI', sans-serif" font-size="13" font-weight="700" letter-spacing="4" text-anchor="middle" fill="#c4b5fd" filter="url(#softGlow)">
+    THE SPATIALLY-GROUNDED AUTONOMOUS SOFTWARE ENGINEERING FLOOR
+  </text>
+
+  <!-- 10. Secondary High-Impact Narrative Tagline -->
+  <text x="600" y="172" font-family="'Inter', 'Segoe UI', sans-serif" font-size="11.5" font-weight="400" letter-spacing="1.8" text-anchor="middle" fill="#94a3b8">
+    Where AI swarms debate architectural tradeoffs, compile production code, and verify in real-time 3D.
+  </text>
+
+  <!-- 11. Interactive High-Tech Capability Chips at Bottom -->
+  <g transform="translate(600, 206)">
+    <!-- Chip 1: 0G Private Computer -->
+    <rect x="-370" y="-11" width="165" height="22" rx="11" fill="#130b35" stroke="#00f2fe" stroke-width="0.75" opacity="0.9"/>
+    <text x="-287" y="3.5" font-family="'JetBrains Mono', 'Space Grotesk', monospace" font-size="9" font-weight="600" letter-spacing="1" text-anchor="middle" fill="#38bdf8">
+      ⚡ 0G AI ROUTER
+    </text>
+
+    <!-- Chip 2: 3D Spatial Floor -->
+    <rect x="-185" y="-11" width="170" height="22" rx="11" fill="#130b35" stroke="#9d4edd" stroke-width="0.75" opacity="0.9"/>
+    <text x="-100" y="3.5" font-family="'JetBrains Mono', 'Space Grotesk', monospace" font-size="9" font-weight="600" letter-spacing="1" text-anchor="middle" fill="#c084fc">
+      🏢 3D SPATIAL FLOOR
+    </text>
+
+    <!-- Chip 3: 50-Agent Swarm Hall -->
+    <rect x="5" y="-11" width="175" height="22" rx="11" fill="#130b35" stroke="#f72585" stroke-width="0.75" opacity="0.9"/>
+    <text x="92" y="3.5" font-family="'JetBrains Mono', 'Space Grotesk', monospace" font-size="9" font-weight="600" letter-spacing="1" text-anchor="middle" fill="#f472b6">
+      🧠 50-AGENT SWARM
+    </text>
+
+    <!-- Chip 4: Zero-Trust Permission Gate -->
+    <rect x="200" y="-11" width="170" height="22" rx="11" fill="#130b35" stroke="#10b981" stroke-width="0.75" opacity="0.9"/>
+    <text x="285" y="3.5" font-family="'JetBrains Mono', 'Space Grotesk', monospace" font-size="9" font-weight="600" letter-spacing="1" text-anchor="middle" fill="#34d399">
+      🛡️ ZERO-TRUST GATE
+    </text>
+  </g>
+
+  <!-- 12. Animated Neon Floor Horizon -->
+  <line x1="380" y1="126" x2="820" y2="126" stroke="#00f2fe" stroke-width="1.2" opacity="0.7">
+    <animate attributeName="x1" values="440;340;440" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="x2" values="760;860;760" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="4s" repeatCount="indefinite"/>
+  </line>
+</svg>

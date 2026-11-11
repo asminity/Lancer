@@ -1,0 +1,27 @@
+log_format pag '$time_iso8601 $request_method $uri $status req=$request_length '
+               'res=$bytes_sent t=$upstream_response_time sess=$http_x_opencode_session';
+access_log /var/log/nginx/pag.log pag;
+client_max_body_size 50m;
+
+# --- Rate limiting: 30 req/min per session, burst 10 ---
+limit_req_zone $http_x_opencode_session zone=pag_rate:1m rate=30r/m;
+
+server {
+  listen 8080;
+
+  location = /health {
+    return 200 'ok';
+    add_header Content-Type text/plain;
+  }
+
+  # 0G Private Computer is the only supported LLM endpoint.
+  location /0g/v1/ {
+    limit_req zone=pag_rate burst=10 nodelay;
+    proxy_pass https://router-api.0g.ai/v1/;
+    proxy_set_header Host router-api.0g.ai;
+    proxy_set_header Authorization "Bearer ${ZG_API_KEY}";
+    proxy_ssl_server_name on;
+    proxy_buffering off;
+    proxy_read_timeout 600s;
+  }
+}

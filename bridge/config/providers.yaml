@@ -1,0 +1,17 @@
+# 0G Private Computer is the only supported LLM provider.
+# !! The numbers below are PLACEHOLDERS to START LOW, NOT verified provider limits. !!
+#    Calibrate (docs/MODEL_ROUTING_AND_RATE_LIMITS.md §9); the gateway also overwrites them at runtime from
+#    x-ratelimit-* / retry-after response headers. `30 rpm` is the only figure in the owner's docs (the old nginx limit).
+global:
+  max_concurrency: 4       # in-flight 0G Router calls (this is gate.state.limit)
+  queue_max: 200
+  max_wait_s: 180          # queue wait before the caller gets 429 + Retry-After (GatewayBusy)
+  safety: 0.9              # use 90 % of any configured rate
+
+zg_compute:                # 0G Private Computer (Router API)
+  base_url: https://router-api.0g.ai/v1
+  key_env: ZG_API_KEY
+  trust_mode: verified     # standard | verified | private (TEE)
+  rpm: 60
+  concurrency: 4
+  scope: per_key

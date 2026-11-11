@@ -1,0 +1,24 @@
+# 0G-only model catalogue + role aliases. Never hard-code a model id anywhere else.
+# Verified against 0G Private Computer Router (https://router-api.0g.ai/v1/models).
+models:
+  - { id: "0g/glm-5.3-flash",                                  provider: zg_compute, upstream_id: "glm-5.3-flash",                          context: 1179648 }
+  - { id: "0g/qwen3-coder-flash",                              provider: zg_compute, upstream_id: "qwen3-coder-flash",                      context: 1000000 }
+  - { id: "0g/kimi-k2.7-code",                                 provider: zg_compute, upstream_id: "kimi-k2.7-code",                         context: 262144 }
+  - { id: "0g/deepseek-v4.1-flash",                            provider: zg_compute, upstream_id: "deepseek-v4.1-flash",                    context: 1441792 }
+  - { id: "0g/qwen3.7-flash",                                  provider: zg_compute, upstream_id: "qwen3.7-flash",                          context: 1000000 }
+  - { id: "0g/qwen-flash",                                     provider: zg_compute, upstream_id: "qwen-flash",                             context: 1000000 }
+
+aliases:
+  triage:             ["0g/glm-5.3-flash", "0g/qwen-flash"]
+  manager:            ["0g/glm-5.3-flash", "0g/deepseek-v4.1-flash"]
+  manager_escalation: ["0g/deepseek-v4.1-flash", "0g/glm-5.3-flash"]
+  lead:               ["0g/glm-5.3-flash", "0g/qwen3-coder-flash"]
+  code:               ["0g/qwen3-coder-flash", "0g/deepseek-v4.1-flash"]
+  fast:               ["0g/qwen-flash", "0g/qwen3.7-flash"]
+  research:           ["0g/glm-5.3-flash", "0g/deepseek-v4.1-flash"]
+  qa:                 ["0g/kimi-k2.7-code", "0g/deepseek-v4.1-flash"]
+  text:               ["0g/glm-5.3-flash", "0g/qwen-flash"]
+  swarm_diverge:      ["0g/qwen3.7-flash", "0g/qwen-flash"]
+  swarm_critique:     ["0g/glm-5.3-flash", "0g/deepseek-v4.1-flash"]
+  swarm_vote:         ["0g/qwen-flash", "0g/qwen3.7-flash"]
+  swarm_synthesis:    ["0g/qwen3-coder-flash", "0g/deepseek-v4.1-flash"]
